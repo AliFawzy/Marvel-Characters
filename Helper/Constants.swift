@@ -22,10 +22,13 @@ public class Constants {
     let multiPartHeader = ["Content-Type": "multipart/form-data"]
     let urlencodedHeader = ["Content-Type": "application/x-www-form-urlencoded"]
     
-    static let domain = "http://api-testing.lamsaworld.com/"
+    static let public_key = "c8c83cdaa5d309e8af31d5ffe1bb0ec5"
+    static let private_key = "1efdb85217a3b8a7ca69003b3bf6e6b76ca629c8"
     
-    static let paginationLimit = 25
+    static let domain = "http://gateway.marvel.com/"
     
-    static let movie_list = "v1/content/movies"
+    static let paginationLimit = 20
+    
+    static let characters = "v1/public/characters"
     
 }

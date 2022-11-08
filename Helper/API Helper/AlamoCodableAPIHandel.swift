@@ -221,7 +221,7 @@ class ApiHandler{
                     let ServerResponse = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? Any
 
                     DispatchQueue.main.async {
-                        print("JSONSerialization response >>> \(ServerResponse ?? [:])")
+//                        print("JSONSerialization response >>> \(ServerResponse ?? [:])")
                     }
                 }catch{
                     print("cannot get JSONSerialization response ")

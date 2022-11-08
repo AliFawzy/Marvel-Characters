@@ -25,15 +25,6 @@ extension UIImageView {
                          placeholder: placeholder,
                          options: [.transition(.fade(1))],
                          progressBlock: nil) { (result) in
-//            switch result {
-//
-//            case .success(let value):
-//                if roundedCircle {
-//                    self.image = value.image.circleMasked
-//                }
-//            case .failure(let error):
-//                print("* setImageWith Error: \(error.localizedDescription)")
-//            }
         }
     }
 }

@@ -29,6 +29,15 @@
 		04DF1C21291AD96C00BF8DC6 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C20291AD96C00BF8DC6 /* Device.swift */; };
 		04DF1C26291ADCFC00BF8DC6 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C25291ADCFC00BF8DC6 /* ResponseError.swift */; };
 		04DF1C28291AE35600BF8DC6 /* GetCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C27291AE35600BF8DC6 /* GetCharacters.swift */; };
+		04DF1C2A291AE72900BF8DC6 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C29291AE72900BF8DC6 /* Functions.swift */; };
+		04DF1C2E291AE7A100BF8DC6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C2C291AE7A100BF8DC6 /* HomeViewController.swift */; };
+		04DF1C2F291AE7A100BF8DC6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DF1C2D291AE7A100BF8DC6 /* HomeViewController.xib */; };
+		04DF1C32291AEB2B00BF8DC6 /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C31291AEB2B00BF8DC6 /* BaseNC.swift */; };
+		04DF1C34291AF76800BF8DC6 /* RoundesCorner+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C33291AF76800BF8DC6 /* RoundesCorner+Extension.swift */; };
+		04DF1C38291AFA6000BF8DC6 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C36291AFA6000BF8DC6 /* CharactersTableViewCell.swift */; };
+		04DF1C39291AFA6000BF8DC6 /* CharactersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DF1C37291AFA6000BF8DC6 /* CharactersTableViewCell.xib */; };
+		04DF1C3B291AFC6000BF8DC6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C3A291AFC6000BF8DC6 /* UIView+Extension.swift */; };
+		04DF1C3D291AFCE600BF8DC6 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1C3C291AFCE600BF8DC6 /* BaseAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +82,15 @@
 		04DF1C20291AD96C00BF8DC6 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		04DF1C25291ADCFC00BF8DC6 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		04DF1C27291AE35600BF8DC6 /* GetCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacters.swift; sourceTree = "<group>"; };
+		04DF1C29291AE72900BF8DC6 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		04DF1C2C291AE7A100BF8DC6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		04DF1C2D291AE7A100BF8DC6 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		04DF1C31291AEB2B00BF8DC6 /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
+		04DF1C33291AF76800BF8DC6 /* RoundesCorner+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoundesCorner+Extension.swift"; sourceTree = "<group>"; };
+		04DF1C36291AFA6000BF8DC6 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
+		04DF1C37291AFA6000BF8DC6 /* CharactersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersTableViewCell.xib; sourceTree = "<group>"; };
+		04DF1C3A291AFC6000BF8DC6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		04DF1C3C291AFCE600BF8DC6 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				04DF1C14291AC3AF00BF8DC6 /* UIImgae+KingFisher.swift */,
+				04DF1C33291AF76800BF8DC6 /* RoundesCorner+Extension.swift */,
+				04DF1C3A291AFC6000BF8DC6 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +211,7 @@
 				04DF1C17291AD8D500BF8DC6 /* API Helper */,
 				04DF1C1E291AD92700BF8DC6 /* Constants.swift */,
 				04DF1C20291AD96C00BF8DC6 /* Device.swift */,
+				04DF1C29291AE72900BF8DC6 /* Functions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -208,6 +229,8 @@
 		04DF1C22291AD98500BF8DC6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04DF1C30291AEB1400BF8DC6 /* Base */,
+				04DF1C2B291AE77100BF8DC6 /* HomeViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +238,7 @@
 		04DF1C23291AD98D00BF8DC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04DF1C35291AFA3A00BF8DC6 /* HomeView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +250,33 @@
 				04DF1C27291AE35600BF8DC6 /* GetCharacters.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04DF1C2B291AE77100BF8DC6 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04DF1C2C291AE7A100BF8DC6 /* HomeViewController.swift */,
+				04DF1C2D291AE7A100BF8DC6 /* HomeViewController.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		04DF1C30291AEB1400BF8DC6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04DF1C31291AEB2B00BF8DC6 /* BaseNC.swift */,
+				04DF1C3C291AFCE600BF8DC6 /* BaseAPI.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		04DF1C35291AFA3A00BF8DC6 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				04DF1C36291AFA6000BF8DC6 /* CharactersTableViewCell.swift */,
+				04DF1C37291AFA6000BF8DC6 /* CharactersTableViewCell.xib */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +395,8 @@
 				04DF1BE4291AC26700BF8DC6 /* LaunchScreen.storyboard in Resources */,
 				04DF1BE1291AC26700BF8DC6 /* Assets.xcassets in Resources */,
 				04DF1BDC291AC26600BF8DC6 /* Main.storyboard in Resources */,
+				04DF1C2F291AE7A100BF8DC6 /* HomeViewController.xib in Resources */,
+				04DF1C39291AFA6000BF8DC6 /* CharactersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,16 +424,23 @@
 				04DF1C19291AD8E500BF8DC6 /* AlamoCodableAPIHandel.swift in Sources */,
 				04DF1C1F291AD92700BF8DC6 /* Constants.swift in Sources */,
 				04DF1BD9291AC26600BF8DC6 /* ViewController.swift in Sources */,
+				04DF1C32291AEB2B00BF8DC6 /* BaseNC.swift in Sources */,
 				04DF1C21291AD96C00BF8DC6 /* Device.swift in Sources */,
 				04DF1C1D291AD90F00BF8DC6 /* AnyType.swift in Sources */,
+				04DF1C3D291AFCE600BF8DC6 /* BaseAPI.swift in Sources */,
 				04DF1C11291AC34F00BF8DC6 /* Toast.swift in Sources */,
 				04DF1BD5291AC26600BF8DC6 /* AppDelegate.swift in Sources */,
 				04DF1C26291ADCFC00BF8DC6 /* ResponseError.swift in Sources */,
+				04DF1C2A291AE72900BF8DC6 /* Functions.swift in Sources */,
+				04DF1C38291AFA6000BF8DC6 /* CharactersTableViewCell.swift in Sources */,
 				04DF1C0F291AC31B00BF8DC6 /* TopVC.swift in Sources */,
 				04DF1C1B291AD8FA00BF8DC6 /* CustomInterceptor.swift in Sources */,
+				04DF1C2E291AE7A100BF8DC6 /* HomeViewController.swift in Sources */,
 				04DF1BDF291AC26600BF8DC6 /* Marvel.xcdatamodeld in Sources */,
 				04DF1BD7291AC26600BF8DC6 /* SceneDelegate.swift in Sources */,
+				04DF1C34291AF76800BF8DC6 /* RoundesCorner+Extension.swift in Sources */,
 				04DF1C28291AE35600BF8DC6 /* GetCharacters.swift in Sources */,
+				04DF1C3B291AFC6000BF8DC6 /* UIView+Extension.swift in Sources */,
 				04DF1C15291AC3AF00BF8DC6 /* UIImgae+KingFisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,8 +623,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +635,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -590,8 +651,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,7 +663,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

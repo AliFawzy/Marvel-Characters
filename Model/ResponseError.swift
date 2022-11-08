@@ -9,6 +9,7 @@
 import Foundation
 
 struct ResponseError: Codable {
-    let status: String?
+    let code: String?
     let message: String?
 }
+
