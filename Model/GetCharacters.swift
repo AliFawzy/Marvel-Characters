@@ -16,22 +16,20 @@ struct GetCharacters: Codable {
     let data: CharactersDataClass?
 }
 
-// MARK: - DataClass
+// MARK: - CharactersDataClass
 struct CharactersDataClass: Codable {
     let offset, limit, total, count: Int?
     let results: [CharactersDataClassResult]?
 }
 
-// MARK: - Result
+// MARK: - CharactersDataClassResult
 struct CharactersDataClassResult: Codable {
     let id: Int?
     let name, resultDescription: String?
     let modified: String?
     let thumbnail: Thumbnail?
     let resourceURI: String?
-    let comics, series: Comics?
-    let stories: Stories?
-    let events: Comics?
+    let comics, series, stories, events: Comics_Series_Stories_Events?
     let urls: [URLElement]?
 
     enum CodingKeys: String, CodingKey {
@@ -41,38 +39,23 @@ struct CharactersDataClassResult: Codable {
     }
 }
 
-// MARK: - Comics
-struct Comics: Codable {
+// MARK: - Comics_Series_Stories_Events
+struct Comics_Series_Stories_Events: Codable {
     let available: Int?
     let collectionURI: String?
-    let items: [ComicsItem]?
+    let items: [ItemDetails]?
     let returned: Int?
 }
 
-// MARK: - ComicsItem
-struct ComicsItem: Codable {
+// MARK: - ItemDetails
+struct ItemDetails: Codable {
     let resourceURI: String?
     let name: String?
 }
 
-// MARK: - Stories
-struct Stories: Codable {
-    let available: Int?
-    let collectionURI: String?
-    let items: [StoriesItem]?
-    let returned: Int?
-}
-
-// MARK: - StoriesItem
-struct StoriesItem: Codable {
-    let resourceURI, name, type: String?
-}
-
-
 // MARK: - Thumbnail
 struct Thumbnail: Codable {
     let path, thumbnailExtension: String?
-
     enum CodingKeys: String, CodingKey {
         case path
         case thumbnailExtension = "extension"
@@ -83,4 +66,5 @@ struct Thumbnail: Codable {
 struct URLElement: Codable {
     let type, url: String?
 }
+
 

@@ -12,19 +12,16 @@ import Kingfisher
 extension UIImageView {
     
     func setImageWith(stringUrl: String, roundedCircle: Bool = false, placeholder: UIImage? = UIImage()) {
-
+        
         let finalPath = stringUrl
         let urlStr = (finalPath).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let url =  URL(string: urlStr!) else {
             print("invalid url --> " + urlStr!)
             return
         }
-
+        
         self.kf.indicatorType = .activity
-        self.kf.setImage(with: url,
-                         placeholder: placeholder,
-                         options: [.transition(.fade(1))],
-                         progressBlock: nil) { (result) in
+        self.kf.setImage(with: url, placeholder: placeholder, options: [.transition(.fade(1))], progressBlock: nil) { (result) in
         }
     }
 }

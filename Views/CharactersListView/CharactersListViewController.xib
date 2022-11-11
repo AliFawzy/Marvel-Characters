@@ -8,11 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Marvel" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersListViewController" customModule="Marvel" customModuleProvider="target">
             <connections>
-                <outlet property="botomRoundedView" destination="E0e-Yp-yH8" id="EGv-vg-RG2"/>
                 <outlet property="charactersTbl" destination="hqp-jE-eTR" id="Tic-Xf-PNY"/>
                 <outlet property="loadMoreIndicator" destination="bLv-yB-v1z" id="teM-z5-fYZ"/>
+                <outlet property="roundedBottomCornersView" destination="E0e-Yp-yH8" id="EGv-vg-RG2"/>
+                <outlet property="searchContainerView" destination="hQr-7t-EJl" id="PLF-df-5YQ"/>
+                <outlet property="searchContainerViewLeadingConstraint" destination="AQS-ex-Fz5" id="a8g-4v-Th0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewFooter" destination="GR5-GD-hhV" id="iMf-zx-tT0"/>
                 <outlet property="viewFooterHightConstraint" destination="Re1-ye-WBx" id="Rjv-fN-ALY"/>
@@ -31,7 +33,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hqp-jE-eTR">
-                    <rect key="frame" x="20" y="74" width="374" height="758"/>
+                    <rect key="frame" x="10" y="74" width="394" height="758"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="HGq-0V-jxZ"/>
@@ -53,6 +55,10 @@
                         <constraint firstItem="bLv-yB-v1z" firstAttribute="centerX" secondItem="GR5-GD-hhV" secondAttribute="centerX" id="w9V-d4-jHN"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQr-7t-EJl">
+                    <rect key="frame" x="500" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.074509806930000005" green="0.078431375319999996" blue="0.078431375319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -60,12 +66,17 @@
                 <constraint firstItem="E0e-Yp-yH8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0o6-s8-DYP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GR5-GD-hhV" secondAttribute="trailing" id="5Jw-rp-Idc"/>
                 <constraint firstItem="hqp-jE-eTR" firstAttribute="top" secondItem="E0e-Yp-yH8" secondAttribute="bottom" constant="10" id="9vB-8x-exY"/>
+                <constraint firstItem="hQr-7t-EJl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="500" id="AQS-ex-Fz5"/>
                 <constraint firstItem="E0e-Yp-yH8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="C4e-5E-8qD"/>
+                <constraint firstItem="hQr-7t-EJl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rlg-hm-eug"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="E0e-Yp-yH8" secondAttribute="trailing" id="Rv5-t9-JtP"/>
                 <constraint firstItem="GR5-GD-hhV" firstAttribute="top" secondItem="hqp-jE-eTR" secondAttribute="bottom" constant="5" id="Sdw-wd-N4h"/>
-                <constraint firstItem="hqp-jE-eTR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="UHP-tK-c07"/>
+                <constraint firstItem="hqp-jE-eTR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="UHP-tK-c07"/>
+                <constraint firstItem="hQr-7t-EJl" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="YfM-Vp-Agn"/>
+                <constraint firstItem="hQr-7t-EJl" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="bec-FQ-bQD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GR5-GD-hhV" secondAttribute="bottom" constant="5" id="fDl-9x-bKV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hqp-jE-eTR" secondAttribute="trailing" constant="20" id="jX2-z3-2qb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hqp-jE-eTR" secondAttribute="trailing" constant="10" id="jX2-z3-2qb"/>
+                <constraint firstAttribute="bottom" secondItem="hQr-7t-EJl" secondAttribute="bottom" id="o7C-sn-Omv"/>
                 <constraint firstItem="GR5-GD-hhV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vnp-5O-iME"/>
             </constraints>
             <point key="canvasLocation" x="-39.130434782608695" y="-11.383928571428571"/>

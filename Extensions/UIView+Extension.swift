@@ -8,9 +8,7 @@
 
 import UIKit
 
-
 extension UIView {
-    
     func applyBlurEffect(withRadius: Bool) {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -19,7 +17,6 @@ extension UIView {
             blurEffectView.clipsToBounds = true
             blurEffectView.layer.cornerRadius = 4
         }
-        
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(blurEffectView)
     }

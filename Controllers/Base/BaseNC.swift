@@ -9,7 +9,6 @@
 import UIKit
 
 class HomeNC: UINavigationController {
-    
     //MARK:- Orientation
     override var shouldAutorotate: Bool {
         return false
@@ -21,7 +20,6 @@ class HomeNC: UINavigationController {
     {
         return UIInterfaceOrientation.portrait
     }
-    
     // status bar status color
     public var requiredStatusBarStyle: UIStatusBarStyle = .lightContent {
         didSet {
@@ -31,13 +29,10 @@ class HomeNC: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         requiredStatusBarStyle
     }
-    
     let mainColor =  #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1098039216, alpha: 1)
-    
     //MARK:- LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationBar.barTintColor = mainColor
         navigationBar.backgroundColor = mainColor
         navigationBar.prefersLargeTitles = true
@@ -54,16 +49,16 @@ class HomeNC: UINavigationController {
         self.navigationBar.titleTextAttributes = textAttributes
         self.navigationBar.largeTitleTextAttributes = largeTextAttributes
     }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.navigationBar.backItem?.title = ""
         changeBarApperanceStyle(navC: self,
-                                color: mainColor, clearShadowColor: true)
+                                color: mainColor,
+                                clearShadowColor: true)
     }
 }
 
-func semiBoldFont(_ size:CGFloat) ->UIFont{
+func semiBoldFont(_ size:CGFloat) ->UIFont {
     let fontName = "Arial"
     return UIFont(name: fontName, size: size * Constants.ratioFont)!
 }

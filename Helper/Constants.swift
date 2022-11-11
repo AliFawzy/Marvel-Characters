@@ -15,7 +15,7 @@ let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 public class Constants {
     
     static let workingWIDTH = 414.0
-    static let ratioFont = SCREEN_WIDTH / (CGFloat(Constants.workingWIDTH + (Device.IS_IPHONE ? 0 : 200))) //SCREEN_WIDTH //
+    static let ratioFont = SCREEN_WIDTH / (CGFloat(Constants.workingWIDTH + (Device.IS_IPHONE ? 0 : 200))) 
     
     let defaultHeader = ["Content-Type":"application/json"]
     let acceptHeader = ["Accept":"application/json"]
@@ -26,9 +26,7 @@ public class Constants {
     static let private_key = "1efdb85217a3b8a7ca69003b3bf6e6b76ca629c8"
     
     static let domain = "http://gateway.marvel.com/"
-    
-    static let paginationLimit = 20
-    
+        
     static let characters = "v1/public/characters"
     
 }
