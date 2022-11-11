@@ -56,7 +56,8 @@ extension CharacterSearchViewController{
     }
     
     private func setupTableView() {
-        charactersTbl.register(SearchCharacterTableViewCell.nib, forCellReuseIdentifier: SearchCharacterTableViewCell.identifier)
+        charactersTbl.register(SearchCharacterTableViewCell.nib,
+                               forCellReuseIdentifier: SearchCharacterTableViewCell.identifier)
         if #available(iOS 15.0, *) {
             charactersTbl.sectionHeaderTopPadding = 0
         }
@@ -90,15 +91,23 @@ extension CharacterSearchViewController: UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
     UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchCharacterTableViewCell.identifier, for: indexPath as IndexPath) as! SearchCharacterTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchCharacterTableViewCell.identifier,
+                                                 for: indexPath as IndexPath) as! SearchCharacterTableViewCell
         cell.selectionStyle = .none
-        let imageUrl = (arrFilterCharacters[indexPath.row].thumbnail?.path ?? "") + "." + (arrFilterCharacters[indexPath.row].thumbnail?.thumbnailExtension ?? "")
+        let character = arrFilterCharacters[indexPath.row]
+        let imageUrl = (character.thumbnail?.path ?? "") + "." + (character.thumbnail?.thumbnailExtension ?? "")
         cell.characterImage.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))
-        let range = ((arrFilterCharacters[indexPath.row].name?.lowercased() ?? "") as NSString).range(of: searchTextField.text?.lowercased() ?? "")
-        let mutableAttributedString = NSMutableAttributedString.init(string: arrFilterCharacters[indexPath.row].name ?? "")
-        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
-        cell.characterName.attributedText = mutableAttributedString
         
+        // get all ranges of searched substring in character name, then set all ranges with red color
+        let ranges = (character.name?.lowercased() ?? "").ranges(of: searchTextField.text?.lowercased() ?? "")
+        let mutableAttributedString = NSMutableAttributedString.init(string: character.name ?? "")
+        ranges.forEach {
+            let startIndex = $0.lowerBound.utf16Offset(in: character.name?.lowercased() ?? "")
+            let lenth = $0.upperBound.utf16Offset(in: character.name?.lowercased() ?? "") - $0.lowerBound.utf16Offset(in: character.name?.lowercased() ?? "")
+            let range = NSRange(location: startIndex, length: lenth)
+            mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: range)
+            cell.characterName.attributedText = mutableAttributedString
+        }
         return cell
     }
     
@@ -113,5 +122,4 @@ extension CharacterSearchViewController: UITableViewDelegate,UITableViewDataSour
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
 

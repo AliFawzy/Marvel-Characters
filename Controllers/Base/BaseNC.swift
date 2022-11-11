@@ -73,7 +73,8 @@ func changeBarApperanceStyle(navC: UINavigationController,
     appearance.backgroundColor = color
     // This will alter the navigation bar title appearance
     let font = UIFont.systemFont(ofSize: 15, weight: .medium)
-    let titleAttribute = [NSAttributedString.Key.font: font , NSAttributedString.Key.foregroundColor: UIColor(named: "#FFFFFF")] //alter to fit your needs
+    let titleAttribute = [NSAttributedString.Key.font: font ,
+                          NSAttributedString.Key.foregroundColor: UIColor(named: "#FFFFFF")] //alter to fit your needs
     appearance.titleTextAttributes = titleAttribute as [NSAttributedString.Key : Any]
     navC.navigationBar.standardAppearance = appearance
     navC.navigationBar.scrollEdgeAppearance = appearance

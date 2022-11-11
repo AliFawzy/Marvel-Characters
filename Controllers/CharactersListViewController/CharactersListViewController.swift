@@ -30,7 +30,7 @@ class CharactersListViewController: UIViewController {
         super.viewDidLoad()
         hideFooterView()
         setupTableView()
-        getCharactersAPI(loadMore: false)
+        getCharactersAPI(loadMore: false, pullToRefresh: false)
         setupNavigationUI()
         setupRefreshControl()
     }
@@ -53,14 +53,15 @@ extension CharactersListViewController {
         arrCharacters = []
         paginationOffset = 0
         charactersTbl.reloadData()
-        getCharactersAPI(loadMore: false)
+        getCharactersAPI(loadMore: false, pullToRefresh: true)
     }
     private func showHideNavigationBar(animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.isNavigationBarHidden = false
     }
     private func setupTableView() {
-        charactersTbl.register(CharactersTableViewCell.nib, forCellReuseIdentifier: CharactersTableViewCell.identifier)
+        charactersTbl.register(CharactersTableViewCell.nib,
+                               forCellReuseIdentifier: CharactersTableViewCell.identifier)
         if #available(iOS 15.0, *) {
             charactersTbl.sectionHeaderTopPadding = 0
         }
@@ -69,12 +70,18 @@ extension CharactersListViewController {
         let x = (SCREEN_WIDTH/2)-(SCREEN_WIDTH/4)
         let y = (navigationController?.navigationBar.frame.height ?? 96) - 50
         let logo : UIImageView = {
-            let img = UIImageView(frame: CGRect.init(x: x, y: y, width: (SCREEN_WIDTH/2), height: 50))
+            let img = UIImageView(frame: CGRect.init(x: x,
+                                                     y: y,
+                                                     width: (SCREEN_WIDTH/2),
+                                                     height: 50))
             img.image = UIImage(named: "marvel-studios-logo")
             img.contentMode = .scaleToFill
             return img}()
         let searchBtn : UIButton = {
-            let btn = UIButton(frame: CGRect.init(x: 10, y: y, width: 30, height: 30))
+            let btn = UIButton(frame: CGRect.init(x: 10,
+                                                  y: y,
+                                                  width: 30,
+                                                  height: 30))
             let imageIcon = UIImage(systemName: "magnifyingglass")?.withTintColor(.red, renderingMode: .alwaysOriginal)
             btn.setBackgroundImage(imageIcon, for: .normal)
             btn.addTarget(self, action: #selector(showSearchView), for: .touchUpInside)
@@ -95,7 +102,6 @@ extension CharactersListViewController {
     }
     func showHideSearchViewWithAnimation() {
         if self.searchContainerViewLeadingConstraint.constant == 500 {
-            // self.showHideNavigationBar(animated: true, show: true)
             UIView.animate(withDuration: 0.3, delay: 0, options: [.curveLinear], animations: {
                 self.searchContainerViewLeadingConstraint.constant = 0
                 self.view.layoutIfNeeded()
@@ -120,29 +126,36 @@ extension CharactersListViewController {
 
 // MARK: - APIs
 extension CharactersListViewController {
-    private func getCharactersAPI(loadMore: Bool) {
+    private func getCharactersAPI(loadMore: Bool, pullToRefresh: Bool) {
+       
         if loadMore {
             setFooterView()
         } else {
-            TopVC.loadingToast()
-            refreshControl.endRefreshing()
+            if !pullToRefresh {
+                TopVC.loadingToast()
+            }
         }
         BaseAPI.GetCharactersList(offset: paginationOffset) { status, response, error in
             defer {
                 if loadMore {
                     self.hideFooterView()
                 } else {
-                    TopVC.dismissToast()
+                    if pullToRefresh{
+                        self.refreshControl.endRefreshing()
+                    } else {
+                        TopVC.dismissToast()
+                    }
                 }
             }
             switch status {
             case 0:
                 print("====>  Model Problem")
             case 1:
-                guard let response = response, let data = response.data, let result = data.results else {return}
+                guard let response = response,
+                      let data = response.data,
+                      let result = data.results else {return}
                 self.totalCharactersCount = data.total ?? 0
                 self.arrCharacters.append(contentsOf: result)
-                
                 DispatchQueue.main.async {
                     self.charactersTbl.reloadData()
                 }
@@ -185,7 +198,7 @@ extension CharactersListViewController: UITableViewDelegate,UITableViewDataSourc
         if indexPath.row + 1 == arrCharacters.count{
             if arrCharacters.count != 0 && arrCharacters.count < totalCharactersCount {
                 paginationOffset += 1
-                getCharactersAPI(loadMore: true)
+                getCharactersAPI(loadMore: true, pullToRefresh: false)
             }
         }
     }

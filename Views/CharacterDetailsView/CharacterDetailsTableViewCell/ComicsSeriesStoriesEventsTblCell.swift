@@ -31,13 +31,16 @@ class ComicsSeriesStoriesEventsTblCell: UITableViewCell {
    private func setupAndRegisterCell() {
        ComicsSeriesStoriesEventsCollection.delegate = self
        ComicsSeriesStoriesEventsCollection.dataSource = self
-        ComicsSeriesStoriesEventsCollection.register(CharacterDetailsCollectionViewCell.nib, forCellWithReuseIdentifier: CharacterDetailsCollectionViewCell.identifier)
+        ComicsSeriesStoriesEventsCollection.register(CharacterDetailsCollectionViewCell.nib,
+                                                      forCellWithReuseIdentifier: CharacterDetailsCollectionViewCell.identifier)
     }
 }
 
 
 // MARK: - UICollectionViewDelegate, DataSource
-extension ComicsSeriesStoriesEventsTblCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ComicsSeriesStoriesEventsTblCell: UICollectionViewDelegate,
+                                            UICollectionViewDataSource,
+                                            UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrItems.count
     }
@@ -46,7 +49,8 @@ extension ComicsSeriesStoriesEventsTblCell: UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterDetailsCollectionViewCell.identifier, for: indexPath) as! CharacterDetailsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterDetailsCollectionViewCell.identifier,
+                                                          for: indexPath) as! CharacterDetailsCollectionViewCell
         
         let imageUrl = (arrItems[indexPath.row].thumbnail?.path ?? "") + "." + (arrItems[indexPath.row].thumbnail?.thumbnailExtension ?? "")
         cell.itemImage.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))

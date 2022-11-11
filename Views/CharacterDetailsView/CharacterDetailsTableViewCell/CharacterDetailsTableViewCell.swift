@@ -13,11 +13,6 @@ class CharacterDetailsTableViewCell: UITableViewCell {
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     
-    @IBOutlet weak var characterPosterImage: UIImageView! {
-        didSet {
-            characterPosterImage.layer.roundCorners([.bottomLeft, .bottomRight], radius: 20)
-        }
-    }
     @IBOutlet weak var characterNameLbl: UILabel!
     @IBOutlet weak var characterDescValueLbl: UILabel!
     @IBOutlet weak var descStackView: UIStackView!

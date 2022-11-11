@@ -32,7 +32,7 @@ class CharaterDetailsViewController: UIViewController {
         setupTableView()
         setupCharacterData()
         showTitle()
-        
+        setupHeaderStretchyImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +53,13 @@ class CharaterDetailsViewController: UIViewController {
 
 // MARK: - Functions
 extension CharaterDetailsViewController {
+    
+  private func setupHeaderStretchyImage() {
+      let imageHeader = StrechyTableViewheader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
+      let imageUrl = (arrCharacterDetails?.thumbnail?.path ?? "") + "." + (arrCharacterDetails?.thumbnail?.thumbnailExtension ?? "")
+      imageHeader.imageView.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))
+      characterDetailstblView.tableHeaderView = imageHeader
+    }
     
     private func showTitle() {
         if let character = arrCharacterDetails, let name = character.name{
@@ -78,8 +85,10 @@ extension CharaterDetailsViewController {
     }
     
     private func setupTableView() {
-        characterDetailstblView.register(CharacterDetailsTableViewCell.nib, forCellReuseIdentifier: CharacterDetailsTableViewCell.identifier)
-        characterDetailstblView.register(ComicsSeriesStoriesEventsTblCell.nib, forCellReuseIdentifier: ComicsSeriesStoriesEventsTblCell.identifier)
+        characterDetailstblView.register(CharacterDetailsTableViewCell.nib,
+                                         forCellReuseIdentifier: CharacterDetailsTableViewCell.identifier)
+        characterDetailstblView.register(ComicsSeriesStoriesEventsTblCell.nib,
+                                         forCellReuseIdentifier: ComicsSeriesStoriesEventsTblCell.identifier)
         if #available(iOS 15.0, *) {
             characterDetailstblView.sectionHeaderTopPadding = 0
         }
@@ -126,7 +135,7 @@ extension CharaterDetailsViewController {
 }
 
 //MARK:- UITableViewDelegate, UITableViewDataSource
-extension CharaterDetailsViewController: UITableViewDelegate,UITableViewDataSource {
+extension CharaterDetailsViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return array_ComicsSeriesStoriesEvents.count + 1
@@ -140,10 +149,9 @@ extension CharaterDetailsViewController: UITableViewDelegate,UITableViewDataSour
         
         let section = indexPath.section
         if section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: CharacterDetailsTableViewCell.identifier, for: indexPath as IndexPath) as! CharacterDetailsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CharacterDetailsTableViewCell.identifier,
+                                                     for: indexPath as IndexPath) as! CharacterDetailsTableViewCell
             cell.selectionStyle = .none
-            let imageUrl = (arrCharacterDetails?.thumbnail?.path ?? "") + "." + (arrCharacterDetails?.thumbnail?.thumbnailExtension ?? "")
-            cell.characterPosterImage.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))
             cell.characterNameLbl.text = arrCharacterDetails?.name
             if arrCharacterDetails?.resultDescription == "" {
                 cell.descView.isHidden = true
@@ -153,8 +161,8 @@ extension CharaterDetailsViewController: UITableViewDelegate,UITableViewDataSour
             }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ComicsSeriesStoriesEventsTblCell.identifier, for: indexPath as IndexPath) as! ComicsSeriesStoriesEventsTblCell
-            print("count \(array_ComicsSeriesStoriesEvents.count)")
+            let cell = tableView.dequeueReusableCell(withIdentifier: ComicsSeriesStoriesEventsTblCell.identifier,
+                                                     for: indexPath as IndexPath) as! ComicsSeriesStoriesEventsTblCell
             cell.titleLbl.text = array_ComicsSeriesStoriesEvents[section-1].name
             cell.arrItems = array_ComicsSeriesStoriesEvents[section-1].items
             cell.ComicsSeriesStoriesEventsCollection.reloadData()
@@ -177,8 +185,11 @@ extension CharaterDetailsViewController: UITableViewDelegate,UITableViewDataSour
             y = 0
         }
         let maxOffsetY = scrollView.contentSize.height - scrollView.frame.size.height
-        backBtn.backgroundColor = #colorLiteral(red: 0.07450980392, green: 0.07843137255, blue: 0.07843137255, alpha: 1).withAlphaComponent(y/maxOffsetY)
         navigateionSubView.backgroundColor =  #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1098039216, alpha: 1).withAlphaComponent(y/maxOffsetY)
         titleLbl.textColor = UIColor.white.withAlphaComponent(y/maxOffsetY)
+        
+        guard let header = characterDetailstblView.tableHeaderView as? StrechyTableViewheader else { return }
+        header.scrollViewDidScroll(scrollView: characterDetailstblView)
     }
+    
 }
