@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct characterResources: Codable {
     let status: String?
     let data: characterResourcesData?

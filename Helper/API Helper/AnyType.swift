@@ -19,7 +19,6 @@ struct AnyType {
     private(set) var doubleArr: [Double]?
     private(set) var floatArr: [Float]?
     
-    
     init(value: String?) {
         self.string = value
     }

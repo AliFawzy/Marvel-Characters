@@ -26,7 +26,7 @@ public class Constants {
     static let private_key = "1efdb85217a3b8a7ca69003b3bf6e6b76ca629c8"
     
     static let domain = "http://gateway.marvel.com/"
-        
+    
     static let characters = "v1/public/characters"
     
 }

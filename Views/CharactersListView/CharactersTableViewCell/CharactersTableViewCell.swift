@@ -8,10 +8,7 @@
 
 import UIKit
 
-class CharactersTableViewCell: UITableViewCell {
-    
-    class var identifier: String { return String(describing: self) }
-    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+class CharactersTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var characterImage: UIImageView!
@@ -23,10 +20,10 @@ class CharactersTableViewCell: UITableViewCell {
         // Initialization code
         setupLayout()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     

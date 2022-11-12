@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
+class CharactersListViewController: BaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var roundedBottomCornersView: BottomSpecificRoundedCornersUIView!
@@ -100,7 +100,7 @@ extension CharactersListViewController {
         searchVC.didMove(toParent: self)
         showHideSearchViewWithAnimation()
     }
-    func showHideSearchViewWithAnimation() {
+    private func showHideSearchViewWithAnimation() {
         if self.searchContainerViewLeadingConstraint.constant == 500 {
             UIView.animate(withDuration: 0.3, delay: 0, options: [.curveLinear], animations: {
                 self.searchContainerViewLeadingConstraint.constant = 0
@@ -127,7 +127,7 @@ extension CharactersListViewController {
 // MARK: - APIs
 extension CharactersListViewController {
     private func getCharactersAPI(loadMore: Bool, pullToRefresh: Bool) {
-       
+        
         if loadMore {
             setFooterView()
         } else {
@@ -135,7 +135,8 @@ extension CharactersListViewController {
                 TopVC.loadingToast()
             }
         }
-        BaseAPI.GetCharactersList(offset: paginationOffset) { status, response, error in
+     BaseAPI.GetCharactersList(offset: paginationOffset) { [weak self] status, response, error in
+         guard let self = self else {return}
             defer {
                 if loadMore {
                     self.hideFooterView()
@@ -169,7 +170,7 @@ extension CharactersListViewController {
     }
 }
 
-//MARK:- UITableViewDelegate, UITableViewDataSource
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension CharactersListViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

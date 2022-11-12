@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0413079E291EE7F80002C23B /* StringProtocol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413079D291EE7F80002C23B /* StringProtocol+Extension.swift */; };
+		041307A0291FE02B0002C23B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413079F291FE02B0002C23B /* BaseViewController.swift */; };
+		041307A2291FE10B0002C23B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041307A1291FE10B0002C23B /* BaseCollectionViewCell.swift */; };
+		041307A4291FE18D0002C23B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041307A3291FE18D0002C23B /* BaseTableViewCell.swift */; };
 		04266A70291D9B450097C3D9 /* CharaterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04266A6E291D9B450097C3D9 /* CharaterDetailsViewController.swift */; };
 		04266A71291D9B450097C3D9 /* CharaterDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04266A6F291D9B450097C3D9 /* CharaterDetailsViewController.xib */; };
 		04266A76291DA5560097C3D9 /* CharacterDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04266A74291DA5560097C3D9 /* CharacterDetailsTableViewCell.swift */; };
@@ -24,8 +27,6 @@
 		042E3575291EA6AE00EFFAF6 /* StretchyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E3574291EA6AE00EFFAF6 /* StretchyHeader.swift */; };
 		04DF1BD5291AC26600BF8DC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1BD4291AC26600BF8DC6 /* AppDelegate.swift */; };
 		04DF1BD7291AC26600BF8DC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1BD6291AC26600BF8DC6 /* SceneDelegate.swift */; };
-		04DF1BD9291AC26600BF8DC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1BD8291AC26600BF8DC6 /* ViewController.swift */; };
-		04DF1BDC291AC26600BF8DC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DF1BDA291AC26600BF8DC6 /* Main.storyboard */; };
 		04DF1BDF291AC26600BF8DC6 /* Marvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1BDD291AC26600BF8DC6 /* Marvel.xcdatamodeld */; };
 		04DF1BE1291AC26700BF8DC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DF1BE0291AC26700BF8DC6 /* Assets.xcassets */; };
 		04DF1BE4291AC26700BF8DC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DF1BE2291AC26700BF8DC6 /* LaunchScreen.storyboard */; };
@@ -74,6 +75,9 @@
 
 /* Begin PBXFileReference section */
 		0413079D291EE7F80002C23B /* StringProtocol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+Extension.swift"; sourceTree = "<group>"; };
+		0413079F291FE02B0002C23B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		041307A1291FE10B0002C23B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		041307A3291FE18D0002C23B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		04266A6E291D9B450097C3D9 /* CharaterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaterDetailsViewController.swift; sourceTree = "<group>"; };
 		04266A6F291D9B450097C3D9 /* CharaterDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharaterDetailsViewController.xib; sourceTree = "<group>"; };
 		04266A74291DA5560097C3D9 /* CharacterDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,8 +95,6 @@
 		04DF1BD1291AC26600BF8DC6 /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DF1BD4291AC26600BF8DC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DF1BD6291AC26600BF8DC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04DF1BD8291AC26600BF8DC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04DF1BDB291AC26600BF8DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04DF1BDE291AC26600BF8DC6 /* Marvel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marvel.xcdatamodel; sourceTree = "<group>"; };
 		04DF1BE0291AC26700BF8DC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04DF1BE3291AC26700BF8DC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -253,8 +255,6 @@
 		04DF1BD3291AC26600BF8DC6 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
-				04DF1BD8291AC26600BF8DC6 /* ViewController.swift */,
-				04DF1BDA291AC26600BF8DC6 /* Main.storyboard */,
 				04DF1BE0291AC26700BF8DC6 /* Assets.xcassets */,
 				04DF1BE2291AC26700BF8DC6 /* LaunchScreen.storyboard */,
 				04DF1BE5291AC26700BF8DC6 /* Info.plist */,
@@ -375,6 +375,9 @@
 			children = (
 				04DF1C31291AEB2B00BF8DC6 /* BaseNC.swift */,
 				04DF1C3C291AFCE600BF8DC6 /* BaseAPI.swift */,
+				0413079F291FE02B0002C23B /* BaseViewController.swift */,
+				041307A1291FE10B0002C23B /* BaseCollectionViewCell.swift */,
+				041307A3291FE18D0002C23B /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -503,7 +506,6 @@
 			files = (
 				04DF1BE4291AC26700BF8DC6 /* LaunchScreen.storyboard in Resources */,
 				04DF1BE1291AC26700BF8DC6 /* Assets.xcassets in Resources */,
-				04DF1BDC291AC26600BF8DC6 /* Main.storyboard in Resources */,
 				04266A77291DA5560097C3D9 /* CharacterDetailsTableViewCell.xib in Resources */,
 				04DF1C2F291AE7A100BF8DC6 /* CharactersListViewController.xib in Resources */,
 				04DF1C39291AFA6000BF8DC6 /* CharactersTableViewCell.xib in Resources */,
@@ -539,9 +541,9 @@
 				04266A76291DA5560097C3D9 /* CharacterDetailsTableViewCell.swift in Sources */,
 				04DF1C19291AD8E500BF8DC6 /* AlamoCodableAPIHandel.swift in Sources */,
 				04DF1C1F291AD92700BF8DC6 /* Constants.swift in Sources */,
-				04DF1BD9291AC26600BF8DC6 /* ViewController.swift in Sources */,
 				04DF1C32291AEB2B00BF8DC6 /* BaseNC.swift in Sources */,
 				04DF1C21291AD96C00BF8DC6 /* Device.swift in Sources */,
+				041307A0291FE02B0002C23B /* BaseViewController.swift in Sources */,
 				04DF1C1D291AD90F00BF8DC6 /* AnyType.swift in Sources */,
 				04DF1C3D291AFCE600BF8DC6 /* BaseAPI.swift in Sources */,
 				04DF1C11291AC34F00BF8DC6 /* Toast.swift in Sources */,
@@ -552,6 +554,7 @@
 				04266A7F291DBA950097C3D9 /* CharacterDetailsCollectionViewCell.swift in Sources */,
 				04DF1C38291AFA6000BF8DC6 /* CharactersTableViewCell.swift in Sources */,
 				04DF1C0F291AC31B00BF8DC6 /* TopVC.swift in Sources */,
+				041307A4291FE18D0002C23B /* BaseTableViewCell.swift in Sources */,
 				04266A8D291DF5E00097C3D9 /* SearchCharacterTableViewCell.swift in Sources */,
 				04DF1C1B291AD8FA00BF8DC6 /* CustomInterceptor.swift in Sources */,
 				04DF1C2E291AE7A100BF8DC6 /* CharactersListViewController.swift in Sources */,
@@ -560,6 +563,7 @@
 				04266A86291DDC960097C3D9 /* CharacterSearchViewController.swift in Sources */,
 				04266A7A291DADF50097C3D9 /* ComicsSeriesStoriesEventsTblCell.swift in Sources */,
 				04266A70291D9B450097C3D9 /* CharaterDetailsViewController.swift in Sources */,
+				041307A2291FE10B0002C23B /* BaseCollectionViewCell.swift in Sources */,
 				04DF1C34291AF76800BF8DC6 /* RoundesCorner+Extension.swift in Sources */,
 				04266A82291DC1D20097C3D9 /* GetCharacterResources.swift in Sources */,
 				04DF1C28291AE35600BF8DC6 /* GetCharacters.swift in Sources */,
@@ -602,14 +606,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04DF1BDA291AC26600BF8DC6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04DF1BDB291AC26600BF8DC6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04DF1BE2291AC26700BF8DC6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -746,9 +742,10 @@
 				INFOPLIST_FILE = Marvel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -774,9 +771,10 @@
 				INFOPLIST_FILE = Marvel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

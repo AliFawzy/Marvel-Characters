@@ -15,7 +15,6 @@ class BaseAPI {
         ApiHandler.cancelRequests()
     }
     
-    // using GetMoviesList Model
     class func GetCharactersList(offset: Int,
                                  completion:@escaping(_ status: Int,
                                                       _ response: GetCharacters?,
@@ -24,7 +23,7 @@ class BaseAPI {
         let timeStamp = "\(getCurrentTimeStamp())"
         let hash = MD5("\(timeStamp)\(Constants.private_key)\(Constants.public_key)")
         let characters_URL = Constants.domain + Constants.characters + "?apikey=\(Constants.public_key)&ts=\(timeStamp)&hash=\(hash ?? "")&offset=\(offset)"
-
+        
         ApiHandler.performGet(URLString: characters_URL,
                               params: nil, headers: Constants().defaultHeader,
                               authorization: nil) { (status: Int,
@@ -43,7 +42,7 @@ class BaseAPI {
         }
     }
     
-    // using GetMoviesList Model
+    // using Get Characters Resources comics, series, stories, events Model
     class func GetCharactersResources(url: String,
                                       completion:@escaping(_ status: Int,
                                                            _ response: characterResources?,
@@ -51,7 +50,7 @@ class BaseAPI {
         let timeStamp = "\(getCurrentTimeStamp())"
         let hash = MD5("\(timeStamp)\(Constants.private_key)\(Constants.public_key)")
         let resources_URL = url + "?apikey=\(Constants.public_key)&ts=\(timeStamp)&hash=\(hash ?? "")"
-
+        
         ApiHandler.performGet(URLString: resources_URL,
                               params: nil,
                               headers: Constants().defaultHeader,

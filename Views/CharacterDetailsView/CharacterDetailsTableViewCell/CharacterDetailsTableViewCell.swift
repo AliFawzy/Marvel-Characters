@@ -8,10 +8,7 @@
 
 import UIKit
 
-class CharacterDetailsTableViewCell: UITableViewCell {
-    
-    class var identifier: String { return String(describing: self) }
-    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+class CharacterDetailsTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var characterNameLbl: UILabel!
     @IBOutlet weak var characterDescValueLbl: UILabel!

@@ -7,26 +7,17 @@
 //
 
 import Foundation
-import CommonCrypto
 import UIKit
+import CryptoKit
 
 public func MD5(_ string: String) -> String? {
-    let length = Int(CC_MD5_DIGEST_LENGTH)
-    var digest = [UInt8](repeating: 0, count: length)
-    if let d = string.data(using: String.Encoding.utf8) {
-        d.withUnsafeBytes({ body in
-            CC_MD5(body, CC_LONG(d.count), &digest)
-        })
-    }
-    return (0..<length).reduce("") {
-        $0 + String(format: "%02x", digest[$1])
-    }
+    let hash = Insecure.MD5.hash(data: string.data(using: .utf8)!)
+    return hash.map { String(format: "%02x", $0) }.joined()
 }
 
 public func getCurrentTimeStamp() -> Int64 {
     return Int64(Date().timeIntervalSince1970 * 1000)
 }
-
 
 class DownloadImageSyncImageLoader {
     func handleResponse(data: Data?, response: URLResponse?) -> UIImage? {

@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeNC: UINavigationController {
-    //MARK:- Orientation
+    //MARK: - Orientation
     override var shouldAutorotate: Bool {
         return false
     }
@@ -30,7 +30,7 @@ class HomeNC: UINavigationController {
         requiredStatusBarStyle
     }
     let mainColor =  #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1098039216, alpha: 1)
-    //MARK:- LIFE CYCLE
+    //MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.barTintColor = mainColor

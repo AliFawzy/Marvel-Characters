@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharaterDetailsViewController: UIViewController {
+class CharaterDetailsViewController: BaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var characterDetailstblView: UITableView!
     @IBOutlet weak var navigateionSubView: UIView! {
@@ -54,11 +54,11 @@ class CharaterDetailsViewController: UIViewController {
 // MARK: - Functions
 extension CharaterDetailsViewController {
     
-  private func setupHeaderStretchyImage() {
-      let imageHeader = StrechyTableViewheader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
-      let imageUrl = (arrCharacterDetails?.thumbnail?.path ?? "") + "." + (arrCharacterDetails?.thumbnail?.thumbnailExtension ?? "")
-      imageHeader.imageView.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))
-      characterDetailstblView.tableHeaderView = imageHeader
+    private func setupHeaderStretchyImage() {
+        let imageHeader = StretchyImage_TableViewheader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
+        let imageUrl = (arrCharacterDetails?.thumbnail?.path ?? "") + "." + (arrCharacterDetails?.thumbnail?.thumbnailExtension ?? "")
+        imageHeader.imageView.setImageWith(stringUrl: imageUrl,placeholder: UIImage(named: "image_not_available"))
+        characterDetailstblView.tableHeaderView = imageHeader
     }
     
     private func showTitle() {
@@ -109,7 +109,8 @@ extension CharaterDetailsViewController {
     
     private func getCharactersResources(url: String, name: String) {
         TopVC.loadingToast()
-        BaseAPI.GetCharactersResources(url: url) { status, response, error in
+        BaseAPI.GetCharactersResources(url: url) { [weak self] status, response, error in
+            guard let self = self else {return}
             defer{
                 TopVC.dismissToast()
             }
@@ -134,7 +135,7 @@ extension CharaterDetailsViewController {
     }
 }
 
-//MARK:- UITableViewDelegate, UITableViewDataSource
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension CharaterDetailsViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -188,8 +189,7 @@ extension CharaterDetailsViewController: UITableViewDelegate, UITableViewDataSou
         navigateionSubView.backgroundColor =  #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1098039216, alpha: 1).withAlphaComponent(y/maxOffsetY)
         titleLbl.textColor = UIColor.white.withAlphaComponent(y/maxOffsetY)
         
-        guard let header = characterDetailstblView.tableHeaderView as? StrechyTableViewheader else { return }
+        guard let header = characterDetailstblView.tableHeaderView as? StretchyImage_TableViewheader else { return }
         header.scrollViewDidScroll(scrollView: characterDetailstblView)
     }
-    
 }

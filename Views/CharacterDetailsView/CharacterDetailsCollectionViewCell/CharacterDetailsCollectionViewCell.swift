@@ -8,11 +8,7 @@
 
 import UIKit
 
-class CharacterDetailsCollectionViewCell: UICollectionViewCell {
-    
-    class var identifier: String { return String(describing: self) }
-    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
-    
+class CharacterDetailsCollectionViewCell: BaseCollectionViewCell {
     
     @IBOutlet weak var itemImage: UIImageView!{
         didSet {

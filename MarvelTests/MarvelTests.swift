@@ -12,7 +12,8 @@ class MarvelTests: XCTestCase {
 
     func testCharacterList()  {
         let expectation = XCTestExpectation.init(description: "Get list success")
-        BaseAPI.GetCharactersList(offset: 0) { status, response, erorr in
+        BaseAPI.GetCharactersList(offset: 0) { [weak self] status, response, erorr in
+            guard let self = self else {return}
             switch status {
             case 0:
                 XCTFail(" model problem \(erorr?.message ?? "")")

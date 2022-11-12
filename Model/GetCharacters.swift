@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - GetCharacters
 struct GetCharacters: Codable {
     let code: Int?
     let status, copyright, attributionText, attributionHTML: String?
@@ -16,13 +15,11 @@ struct GetCharacters: Codable {
     let data: CharactersDataClass?
 }
 
-// MARK: - CharactersDataClass
 struct CharactersDataClass: Codable {
     let offset, limit, total, count: Int?
     let results: [CharactersDataClassResult]?
 }
 
-// MARK: - CharactersDataClassResult
 struct CharactersDataClassResult: Codable {
     let id: Int?
     let name, resultDescription: String?
@@ -31,7 +28,7 @@ struct CharactersDataClassResult: Codable {
     let resourceURI: String?
     let comics, series, stories, events: Comics_Series_Stories_Events?
     let urls: [URLElement]?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case resultDescription = "description"
@@ -39,7 +36,6 @@ struct CharactersDataClassResult: Codable {
     }
 }
 
-// MARK: - Comics_Series_Stories_Events
 struct Comics_Series_Stories_Events: Codable {
     let available: Int?
     let collectionURI: String?
@@ -47,13 +43,11 @@ struct Comics_Series_Stories_Events: Codable {
     let returned: Int?
 }
 
-// MARK: - ItemDetails
 struct ItemDetails: Codable {
     let resourceURI: String?
     let name: String?
 }
 
-// MARK: - Thumbnail
 struct Thumbnail: Codable {
     let path, thumbnailExtension: String?
     enum CodingKeys: String, CodingKey {
@@ -62,9 +56,6 @@ struct Thumbnail: Codable {
     }
 }
 
-// MARK: - URLElement
 struct URLElement: Codable {
     let type, url: String?
 }
-
-

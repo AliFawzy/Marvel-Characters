@@ -12,7 +12,7 @@ protocol exitSearchViewProtocol {
     func hideSearchView()
 }
 
-class CharacterSearchViewController: UIViewController {
+class CharacterSearchViewController: BaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var searchContainerView: UIView! {
@@ -82,7 +82,7 @@ extension CharacterSearchViewController: UITextFieldDelegate {
     }
 }
 
-//MARK:- UITableViewDelegate, UITableViewDataSource
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension CharacterSearchViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

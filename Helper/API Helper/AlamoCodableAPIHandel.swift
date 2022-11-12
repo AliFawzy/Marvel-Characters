@@ -27,7 +27,6 @@ class ApiHandler{
         
         if checkConnection() {
             let escapedString = URLString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            //            let Headers = ApiHandler.checkHeaders(headers: headers, authorization: authorization)
             var newHeaders: HTTPHeaders?
             
             if authorization == nil {
@@ -71,12 +70,11 @@ class ApiHandler{
                 newHeaders = ApiHandler.checkHeaders(headers: headers, authorization: ["Authorization":"Bearer \(authorization!)"])
             }
             
-            
             // Call with codable model
             AF.request(escapedString, method: httpMethod, parameters: params, encoder: JSONParameterEncoder.default, headers: newHeaders, interceptor: CustomInterceptor())
                 .validate(statusCode: 200...401)
                 .responseData { (response) in
-
+                    
                     if response.response?.statusCode != 401 {
                         handleResponse(response: response, completed: completed)
                     } else {
@@ -90,12 +88,10 @@ class ApiHandler{
         }
     }
     
-    
     class func performDelete<T: Codable>(httpMethod: HTTPMethod = .delete, URLString: String, params: [String: Any]?, headers: [String:String]? = nil, authorization:String? = nil, isAuthEqualNil: Bool = true, completed: @escaping (_ status: Int, _ response: T?, _ Error: ResponseError?) -> Void) {
         
         if checkConnection() {
             let escapedString = URLString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            //            let Headers = ApiHandler.checkHeaders(headers: headers, authorization: authorization)
             var newHeaders: HTTPHeaders?
             
             if authorization == nil {
@@ -120,16 +116,12 @@ class ApiHandler{
         }else{
             ApiHandler.checkInternetConnection(completed: completed)
         }
-        
     }
-    
     
     class func performPut<P:Codable, T:Codable>(httpMethod: HTTPMethod = .put, URLString: String, params: P?, headers: [String:String]? = nil, authorization:String? = nil, isAuthEqualNil: Bool = true, completed: @escaping (_ status: Int, _ response: T?, _ Error: ResponseError?) -> Void) {
         
         if checkConnection() {
-            
             let escapedString = URLString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            //            let headers = ApiHandler.checkHeaders(headers: headers, authorization: authorization)
             var newHeaders: HTTPHeaders?
             
             if authorization == nil {
@@ -155,16 +147,12 @@ class ApiHandler{
         }else{
             ApiHandler.checkInternetConnection(completed: completed)
         }
-        
     }
     
     class func uploadPost<T:Codable>(httpMethod: HTTPMethod = .post, URLString: String, params: [String:String], imageModelKey: String?, images: [UIImage]?, headers: [String:String]? = nil, authorization:String? = nil, isAuthEqualNil: Bool = true, completed: @escaping (_ status: Int, _ response: T?, _ Error: ResponseError?) -> Void) {
         
         if checkConnection() {
-            
             let escapedString = URLString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            
-            //            let headers = ApiHandler.checkHeaders(headers: headers, authorization: authorization, OtherHeaders: [Constants.multiPartHeader, Constants.multiPartHeader])
             var newHeaders: HTTPHeaders?
             
             if authorization == nil {
@@ -189,18 +177,16 @@ class ApiHandler{
                         multipartFormData.append(imgData, withName: imageModelKey ?? "", fileName: UUID().uuidString + ".jpeg", mimeType: "image/*")
                     }
                 }
-                
-                
             },to: URL.init(string: escapedString)!, usingThreshold: UInt64.init(),
                       method: httpMethod,
                       headers: newHeaders)
-                .uploadProgress(queue: .main, closure: { progress in
-                    print("Upload Progress: \(progress.fractionCompleted)")
-                })
-                .responseData{ response in
-                    
-                    handleResponse(response: response, completed: completed)
-                }
+            .uploadProgress(queue: .main, closure: { progress in
+                print("Upload Progress: \(progress.fractionCompleted)")
+            })
+            .responseData{ response in
+                
+                handleResponse(response: response, completed: completed)
+            }
         }else{
             ApiHandler.checkInternetConnection(completed: completed)
         }
@@ -209,24 +195,10 @@ class ApiHandler{
     class private func handleResponse<T: Codable>(response: AFDataResponse<Data>, completed: @escaping (_ status: Int, _ response: T?, _ Error: ResponseError?) -> Void) {
         
         switch response.result{
-            
         case .success :
-            
             do{
                 guard let data = response.data else {return}
                 guard let statusCode = response.response?.statusCode else {return}
-                print("sttus code \(statusCode)")
-                print("data is \(data)")
-                do{
-                    let ServerResponse = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? Any
-
-                    DispatchQueue.main.async {
-//                        print("JSONSerialization response >>> \(ServerResponse ?? [:])")
-                    }
-                }catch{
-                    print("cannot get JSONSerialization response ")
-                }
-                
                 switch statusCode {
                 case 200...400:
                     let jsonResponse = try JSONDecoder().decode(T.self, from: data)

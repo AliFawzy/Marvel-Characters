@@ -8,9 +8,7 @@
 
 import UIKit
 
-class SearchCharacterTableViewCell: UITableViewCell {
-    class var identifier: String { return String(describing: self) }
-    class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
+class SearchCharacterTableViewCell: BaseTableViewCell {
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
@@ -20,15 +18,15 @@ class SearchCharacterTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var characterName: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
 }

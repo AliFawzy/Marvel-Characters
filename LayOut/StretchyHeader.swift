@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 
-/// Strechy Table View header
-final class StrechyTableViewheader: UIView{
+final class StretchyImage_TableViewheader: UIView{
     public let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -25,7 +24,6 @@ final class StrechyTableViewheader: UIView{
     private var containerView = UIView()
     private var containerViewHight = NSLayoutConstraint()
     
-    // Mark: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         creatViews()
@@ -36,13 +34,12 @@ final class StrechyTableViewheader: UIView{
         super.init(coder: aDecoder)
     }
     
-    /// create subviews
+    // create subviews
     private func creatViews() {
         addSubview(containerView)
         containerView.addSubview(imageView)
     }
     
-    /// Sets up View Constraint
     func setViewConstraints() {
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: containerView.widthAnchor),
@@ -61,7 +58,7 @@ final class StrechyTableViewheader: UIView{
         imageViewHight.isActive = true
     }
     
-    ///  notify view of scroll change from container
+    //  notify view of scroll change from container
     public func scrollViewDidScroll(scrollView: UIScrollView){
         containerViewHight.constant = scrollView.contentInset.top
         let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
